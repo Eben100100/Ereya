@@ -17,14 +17,14 @@ export default function App() {
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
 
-  const controller = new AbortController();
-
   useEffect(() => {
+    const controller = new AbortController();
+
     const fetchMovies = async () => {
       try {
         setIsLoading(true);
         const res = await fetch(
-          `http://www.omdbapi.com/?apikey=902cdd1d&s=${query}`,
+          `https://www.omdbapi.com/?apikey=902cdd1d&s=${query}`,
           { signal: controller.signal }
         );
         if (!res.ok) throw new Error("Can not fetch data");
@@ -48,7 +48,7 @@ export default function App() {
     fetchMovies();
 
     return () => controller.abort();
-  }, [query, controller]);
+  }, [query]);
 
   const handleSelectedMovies = (id) => {
     setSelectedId(id);

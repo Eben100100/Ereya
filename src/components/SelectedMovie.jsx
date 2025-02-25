@@ -34,7 +34,7 @@ function SelectedMovie({
       try {
         setIsLoading(true);
         const res = await fetch(
-          `http://www.omdbapi.com/?apikey=902cdd1d&i=${selectedId}`
+          `https://www.omdbapi.com/?apikey=902cdd1d&i=${selectedId}`
         );
         if (!res.ok)
           throw new Error("can't not load data, some went wrong thing");
