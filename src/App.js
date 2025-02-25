@@ -48,7 +48,7 @@ export default function App() {
     fetchMovies();
 
     return () => controller.abort();
-  }, [query]);
+  }, [query, controller]);
 
   const handleSelectedMovies = (id) => {
     setSelectedId(id);
